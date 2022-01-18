@@ -2,6 +2,8 @@ const {src, dest, watch, series, parallel } = require("gulp");
 const browserSync = require("browser-sync").create();
 
 // Плагины
+const plumber = require("gulp-plumber");
+const notify = require("gulp-notify");
 const fileInclude = require("gulp-file-include");
 const htmlmin = require("gulp-htmlmin");
 const size = require("gulp-size");
@@ -10,6 +12,12 @@ const size = require("gulp-size");
 //Обработка HTML
 const html = () => {
   return src("./src/html/*.html")
+    .pipe(plumber({
+      errorHandler: notify.onError(error => ({
+        title: "Ошибка в HTML",
+        message: error.message
+      }))
+    }))
     .pipe(fileInclude())
     .pipe(size({ title: "До сжатия" }))
     .pipe(htmlmin({
