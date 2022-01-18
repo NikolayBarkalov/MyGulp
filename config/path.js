@@ -30,11 +30,11 @@ module.exports = {
     dest: pathDest + "/css"
   },
 
-  // js: {
-  //   src: pathSrc + "/js/*.js",
-  //   watch: pathSrc + "/js/**/*.js",
-  //   dest: pathDest + "/js"
-  // },
+  js: {
+    src: pathSrc + "/js/*.js",
+    watch: pathSrc + "/js/**/*.js",
+    dest: pathDest + "/js"
+  },
 
   // img: {
   //   src: pathSrc + "/img/*.{png,jpg,jpeg,git,svg}",
