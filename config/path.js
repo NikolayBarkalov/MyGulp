@@ -18,11 +18,11 @@ module.exports = {
   },
 
 
-  // css: {
-  //   src: pathSrc + "/css/*.css",
-  //   watch: pathSrc + "/css/**/*.css",
-  //   dest: pathDest + "/css"
-  // },
+  css: {
+    src: pathSrc + "/css/*.css",
+    watch: pathSrc + "/css/**/*.css",
+    dest: pathDest + "/css"
+  },
 
   // scss: {
   //   src: pathSrc + "/sass/*.{sass,scss}",
