@@ -36,15 +36,15 @@ module.exports = {
     dest: pathDest + "/js"
   },
 
-  // img: {
-  //   src: pathSrc + "/img/*.{png,jpg,jpeg,git,svg}",
-  //   watch: pathSrc + "/img/**/*.{png,jpg,jpeg,git,svg}",
-  //   dest: pathDest + "/img"
-  // },
+  img: {
+    src: pathSrc + "/img/*.{png,jpg,jpeg,git,svg}",
+    watch: pathSrc + "/img/**/*.{png,jpg,jpeg,git,svg}",
+    dest: pathDest + "/img"
+  },
 
-  // font: {
-  //   src: pathSrc + "/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
-  //   watch: pathSrc + "/font/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
-  //   dest: pathDest + "/font"
-  // },
+  font: {
+    src: pathSrc + "/font/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
+    watch: pathSrc + "/font/**/*.{eot,ttf,otf,otc,ttc,woff,woff2,svg}",
+    dest: pathDest + "/font"
+  },
 }

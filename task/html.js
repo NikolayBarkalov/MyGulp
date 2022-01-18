@@ -11,6 +11,7 @@ const notify = require("gulp-notify");
 const fileInclude = require("gulp-file-include");
 const htmlmin = require("gulp-htmlmin");
 const size = require("gulp-size");
+const webpHtml = require("gulp-webp-html");
 
 //Обработка HTML
 const html = () => {
@@ -22,6 +23,7 @@ const html = () => {
       }))
     }))
     .pipe(fileInclude())
+    .pipe(webpHtml())
     .pipe(size({ title: "До сжатия" }))
     .pipe(htmlmin(app.htmlmin))
     .pipe(size({ title: "После сжатия" }))

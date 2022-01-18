@@ -11,6 +11,7 @@ const pug = require('./task/pug.js');
 // const css = require('./task/css.js'); // Включать в задачи ТОЛЬКО если задача css выключина вк. в -> Наблюдение и Задачи + Сборка
 const scss = require('./task/scss.js');
 const js = require('./task/js.js');
+const img = require('./task/img.js');
 
 
 // Сервер
@@ -29,16 +30,18 @@ const watcher = () => {
   // watch(path.css.watch, css).on("all", browserSync.reload);
   watch(path.scss.watch, scss).on("all", browserSync.reload);
   watch(path.js.watch, js).on("all", browserSync.reload);
+  watch(path.img.watch, img).on("all", browserSync.reload);
 }
 
 // Задачи 
 exports.pug = pug;
 exports.scss = scss;
 exports.js = js;
+exports.img = img;
 
 // Сборка
 exports.dev = series(
   clear,
-  parallel(pug, scss, js),
+  parallel(pug, scss, js, img),
   parallel(watcher, server)
 );
