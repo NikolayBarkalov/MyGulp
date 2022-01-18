@@ -28,18 +28,3 @@ body {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
-@media (max-width: 750px) {
-  body {
-    color: #fff;
-    background-color: rgb(206, 186, 186);
-  }
-
-  .title {
-    text-align: center;
-  }
-
-  .news {
-    display: block;
-  }
-}

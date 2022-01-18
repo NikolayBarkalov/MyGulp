@@ -24,11 +24,11 @@ module.exports = {
     dest: pathDest + "/css"
   },
 
-  // scss: {
-  //   src: pathSrc + "/sass/*.{sass,scss}",
-  //   watch: pathSrc + "/sass/**/*.{sass,scss}",
-  //   dest: pathDest + "/css"
-  // },
+  scss: {
+    src: pathSrc + "/sass/*.{sass,scss}",
+    watch: pathSrc + "/sass/**/*.{sass,scss}",
+    dest: pathDest + "/css"
+  },
 
   // js: {
   //   src: pathSrc + "/js/*.js",

@@ -1,0 +1,9 @@
+.title {
+  text-transform: uppercase;
+
+  @mixin ph {
+    .title {
+      text-align: center;
+    }
+  }
+}
