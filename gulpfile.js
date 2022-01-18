@@ -1,73 +1,26 @@
-const {src, dest, watch, series, parallel } = require("gulp");
+const { watch, series, parallel } = require("gulp");
 const browserSync = require("browser-sync").create();
-const del = require("del");
 
-// Плагины
-const plumber = require("gulp-plumber");
-const notify = require("gulp-notify");
-const fileInclude = require("gulp-file-include");
-const htmlmin = require("gulp-htmlmin");
-const size = require("gulp-size");
-const pugs = require("gulp-pug");
+// Конфигурация
+const path = require('./config/path.js');
 
-
-
-//Обработка HTML
-const html = () => {
-  return src("./src/html/*.html")
-    .pipe(plumber({
-      errorHandler: notify.onError(error => ({
-        title: "Ошибка в HTML",
-        message: error.message
-      }))
-    }))
-    .pipe(fileInclude())
-    .pipe(size({ title: "До сжатия" }))
-    .pipe(htmlmin({
-      collapseWhitespace: true // Убрать все лишние сим. разметки
-    }))
-    .pipe(size({ title: "После сжатия" }))
-    .pipe(dest("./public"))
-    .pipe(browserSync.stream());
-}
-
-//Обработка PUG
-const pug = () => {
-  return src("./src/pug/*.pug")
-    .pipe(plumber({
-      errorHandler: notify.onError(error => ({
-        title: "Ошибка в PUG",
-        message: error.message
-      }))
-    }))
-    .pipe(pugs({
-      pretty: true, //Сжимать???
-      data: {
-        news: require('./data/news.json')
-      }
-    }))
-    .pipe(dest("./public"))
-    .pipe(browserSync.stream());
-}
-
-
-// Удаление директории
-const clear = () => {
-  return del("./public");
-}
+// Задачи
+const clear = require('./task/clear.js')
+const pug = require('./task/pug.js')
+// const html = require('./task/html.js') // Включать в задачи ТОЛЬКО если задача pug выключине
 
 // Сервер
 const server = () => {
   browserSync.init({
     server: {
-      baseDir: "./public"
+      baseDir: path.root
     }
   })
 }
 
 // Наблюдение
 const watcher = () => {
-  watch("./src/pug/**/*.pug", pug);
+  watch(path.pug.watch, pug).on("all", browserSync.reload);
 }
 
 // Задачи 
