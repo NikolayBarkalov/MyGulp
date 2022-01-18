@@ -18,6 +18,7 @@
   "homepage": "https://github.com/NikolayBarkalov/MyGulp#readme",
   "devDependencies": {
     "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.3.0",
     "gulp-htmlmin": "^5.0.1",

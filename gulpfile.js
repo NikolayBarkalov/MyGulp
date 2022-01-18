@@ -1,5 +1,6 @@
 const {src, dest, watch, series, parallel } = require("gulp");
 const browserSync = require("browser-sync").create();
+const del = require("del");
 
 // Плагины
 const plumber = require("gulp-plumber");
@@ -7,6 +8,7 @@ const notify = require("gulp-notify");
 const fileInclude = require("gulp-file-include");
 const htmlmin = require("gulp-htmlmin");
 const size = require("gulp-size");
+
 
 
 //Обработка HTML
@@ -28,6 +30,11 @@ const html = () => {
     .pipe(browserSync.stream());
 }
 
+// Удаление директории
+const clear = () => {
+  return del("./public");
+}
+
 // Сервер
 const server = () => {
   browserSync.init({
@@ -45,9 +52,11 @@ const watcher = () => {
 // Задачи 
 exports.html = html;
 exports.watch = watcher;
+exports.clear = clear;
 
 // Сборка
 exports.dev = series(
+  clear,
   html,
   parallel(watcher, server)
 );
