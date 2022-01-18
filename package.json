@@ -1,0 +1,22 @@
+{
+  "name": "mygulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikolayBarkalov/MyGulp.git"
+  },
+  "author": "Nikolay Barkalov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikolayBarkalov/MyGulp/issues"
+  },
+  "homepage": "https://github.com/NikolayBarkalov/MyGulp#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
